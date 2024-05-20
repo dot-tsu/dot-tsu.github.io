@@ -3,7 +3,7 @@ import "@fontsource/miriam-libre";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="text-primary bg-background">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -11,9 +11,10 @@ import "@fontsource/miriam-libre";
     <meta name="generator" content={Astro.generator} />
     <title></title>
   </head>
-  <body class="flex items-center justify-center h-screen">
-    <h1 class="text-4xl font-bold">Hello World!</h1>
+  <body>
     <slot />
   </body>
 </html>
+
 <style is:global></style>
+
