@@ -19,7 +19,10 @@ const contactLinks = [
 <nav
   class="lg:max-w-[250px] lg:h-svh lg:border-r-2 p-5 fixed top-0 left-0 w-full bg-gradient-to-b from-background from-[89%] to-90% lg:bg-background">
   <div class="flex items-center justify-between">
-    <a class="text-xl font-bold rounded-lg" href="#">Luca<br />Di&nbsp;Marco</a>
+    <a
+      class="text-xl font-bold rounded-lg hover:translate-x-1 text-secondary transition-all"
+      href="#">Luca<br />Di&nbsp;Marco</a
+    >
     <button
       class="lg:hidden p-2 stroke-primary [&>svg]:w-8 [&>svg]:h-8 transition-opacity ease-in-out">
       <Menu className="menu" />
@@ -51,7 +54,7 @@ const contactLinks = [
         <li>
           <a
             href={link.href}
-            class="text-primary hover:text-muted/70 transition-colors">
+            class="text-primary hover:text-muted/70 transition-colors ">
             {link.text}
           </a>
         </li>
