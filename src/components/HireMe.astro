@@ -1,4 +1,5 @@
 ---
+import UnderlinedLink from "@/components/UnderlinedLink.astro";
 import ArrowLongRight from "@/components/icons/ArrowLongRight.astro";
 ---
 
@@ -37,12 +38,12 @@ import ArrowLongRight from "@/components/icons/ArrowLongRight.astro";
       >meticulousness</strong
     >, and boundless <strong>creative imagination</strong>.
   </p>
-  <a
-    href="/#Projects"
-    class="text-lg lg:text-2xl text-primary max-w-fit my-5 italic flex items-center relative after:content-[''] lg:after:absolute lg:after:-bottom-1 lg:after:left-0 lg:after:w-[10px] lg:after:h-[2px] lg:after:rounded-lg lg:after:bg-muted lg:after:hover:w-full lg:after:transition-all duration-300 ease-in-out">
+  <UnderlinedLink href="/#Projects">
     See my projects
-    <ArrowLongRight
-      className="h-4 w-6 lg:h-6 lg:w-6 stroke-primary ml-6 animate-move-arrow"
-    />
-  </a>
+    <Fragment slot="icon">
+      <ArrowLongRight
+        className="h-4 w-6 lg:h-6 lg:w-6 stroke-primary ml-6 animate-move-arrow"
+      />
+    </Fragment>
+  </UnderlinedLink>
 </section>

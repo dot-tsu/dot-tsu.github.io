@@ -1,7 +1,7 @@
 ---
 import Menu from "@/components/icons/Menu.astro";
 import Close from "@/components/icons/Close.astro";
-
+import UnderlinedLink from "@/components/UnderlinedLink.astro";
 const navLinks = [
   { href: "/about", text: "About" },
   { href: "https://tsuramii.github.io/online-cv/", text: "CV" },
@@ -35,11 +35,7 @@ const contactLinks = [
     {
       navLinks.map((link) => (
         <li>
-          <a
-            href={link.href}
-            class="relative lg:after:content-[''] lg:after:absolute lg:after:-bottom-1 lg:after:left-0 lg:after:w-[10px] lg:after:h-[2px] lg:after:rounded-lg lg:after:bg-muted lg:after:hover:w-full lg:after:transition-all duration-300 ease-in-out  ">
-            {link.text}
-          </a>
+          <UnderlinedLink href={link.href}>{link.text}</UnderlinedLink>
         </li>
       ))
     }
