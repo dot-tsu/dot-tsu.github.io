@@ -1,0 +1,63 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+
+const projects = [
+  {
+    title: "MyTinerary",
+    description:
+      "A website for creating travel itineraries easily and efficiently.",
+    image:
+      "https://media.licdn.com/dms/image/D4D2DAQHMH_R1cZq0fg/profile-treasury-image-shrink_800_800/0/1717887267735?e=1718492400&v=beta&t=bRCo7KTmLnoZr7oxJXf1BZMWUTN7APhlWSOpZgT4y0M",
+    github: "https://github.com/tsuramii/mytinerary-front",
+    link: "https://tsuramii.github.io/mytinerary-front/",
+  },
+  {
+    title: "ADN Web Solutions",
+    description:
+      "A website for a company that provides web development services.",
+    image:
+      "https://media.licdn.com/dms/image/D4D2DAQFrl1bjwAdT1A/profile-treasury-image-shrink_800_800/0/1716166576465?e=1718492400&v=beta&t=oCRUoShTrXMNOa73wULShgmUV8-5CPdU0WL6S5YUnZ8",
+    github: "https://tsuramii.github.io/adn-solutions-mockup/",
+    link: "https://tsuramii.github.io/adn-solutions-mockup/",
+  },
+  {
+    title: "Laggy or Not",
+    description: "A simple app to easily check your network latency and ping.",
+    image:
+      "https://media.licdn.com/dms/image/D4D2DAQFWkDUtH-HMnA/profile-treasury-image-shrink_800_800/0/1716166557797?e=1718492400&v=beta&t=7Eq0lySxkHwAEawrI2xecUAFg3JQOBlAvr4wNHRcZE8",
+    github: "https://github.com/tsuramii/laggy-or-not",
+    link: "https://tsuramii.github.io/laggy-or-not/",
+  },
+  {
+    title: "Askbot",
+    description: "A Landing page for a SaaS chatbot platform",
+    image:
+      "https://media.licdn.com/dms/image/D4D2DAQHsdglTqeWcOw/profile-treasury-image-shrink_800_800/0/1716166444439?e=1718492400&v=beta&t=84Hvl6TUDDO-CexdC_qM0vNkxYZjhLq2mgT9iYBP6RY",
+    github: null,
+    link: null,
+  },
+  {
+    title: "Joyamate",
+    description:
+      "An e-commerce for special Creole jewelry and Argentinian mates",
+    image:
+      "https://media.licdn.com/dms/image/D4D2DAQHtkf_qAmYhNw/profile-treasury-image-shrink_800_800/0/1716166609447?e=1718492400&v=beta&t=n3ZZuaIHLQTO73by0MVLLgBwW7pY-W91SVe9f2SVHRg",
+    github: null,
+    link: null,
+  },
+];
+---
+
+<section id="Projects" class="p-4 lg:p-10 min-h-screen">
+  <h1 class="text-2xl lg:text-6xl text-secondary font-black">What I've done</h1>
+  <p class="mb-4 mt-2 lg:text-2xl text-muted block max-w-[70%]">
+    I've designed and developed diverse web projects, from simple sites to
+    complex apps, delivering high-quality front-end solutions.
+  </p>
+  <div class="grid
+    grid-cols-1
+    md:grid-cols-3
+    gap-5">
+    {projects.map((project) => <ProjectCard {...project} />)}
+  </div>
+</section>
