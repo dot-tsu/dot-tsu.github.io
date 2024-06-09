@@ -45,14 +45,6 @@ const projects = [
     github: null,
     link: null,
   },
-  {
-    title: "Your Next Project",
-    description: "Contact me to discuss your next project idea!",
-    image:
-      "https://media.discordapp.net/attachments/1112156418926198855/1249148127185997944/328shots_so.png?ex=66663f59&is=6664edd9&hm=7fe751b10964eb54a02c45e85b081cf4d2778887146e6e518aad9c3466d7f829&=&format=webp&quality=lossless&width=466&height=350",
-    github: null,
-    link: "/contact",
-  },
 ];
 ---
 
@@ -67,5 +59,16 @@ const projects = [
     md:grid-cols-3
     gap-5">
     {projects.map((project) => <ProjectCard {...project} />)}
+    <a
+      href="/contact"
+      class="opacity-80 hover:opacity-100 hover:-translate-y-2 transition-all">
+      <ProjectCard
+        title="Your Next Project"
+        description="Contact me to discuss your next project idea!"
+        image="https://media.discordapp.net/attachments/1112156418926198855/1249148127185997944/328shots_so.png?ex=66663f59&is=6664edd9&hm=7fe751b10964eb54a02c45e85b081cf4d2778887146e6e518aad9c3466d7f829&=&format=webp&quality=lossless&width=466&height=350"
+        github={null}
+        link={null}
+      />
+    </a>
   </div>
 </section>
