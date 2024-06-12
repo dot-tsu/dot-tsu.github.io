@@ -33,6 +33,10 @@ import Navbar from "@/components/Navbar.astro";
 </html>
 
 <style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+
   #cursor-dot,
   #cursor-border {
     @apply bg-background mix-blend-difference fixed rounded-full pointer-events-none z-50;
