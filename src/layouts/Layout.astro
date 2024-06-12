@@ -5,15 +5,23 @@ import Navbar from "@/components/Navbar.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="text-primary bg-background cursor-none">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
-    <title></title>
+    <meta
+      name="description"
+      content="Luca Di Marco's portfolio showcasing web development projects and skills"
+    />
+    <meta
+      name="keywords"
+      content="Luca Di Marco, web developer, portfolio, front-end, back-end, projects"
+    />
+    <title>Luca Di Marco - Developer Portfolio</title>
   </head>
-  <body>
+  <body class="text-primary bg-background cursor-none">
     <Navbar />
     <main class="mt-[100px] lg:mt-0 lg:ml-[250px] p-5 relative flex flex-col">
       <slot />
