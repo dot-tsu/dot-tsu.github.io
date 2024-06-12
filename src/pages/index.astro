@@ -12,36 +12,35 @@ import Contact from "@/components/Contact.astro";
   <Projects />
   <Contact />
   <h2
-    class="text-[18svw] font-black text-surface/30 font-[arial] fixed bottom-0 leading-none right-0 lg:bottom-[5rem] lg:right-[5rem] select-none -z-50"
+    class="text-[18svw] font-black text-surface/30 font-[arial] fixed bottom-0 leading-none right-0 lg:bottom-[5rem] lg:right-[5rem] select-none -z-50 transition-colors duration-700"
     id="section-text">
     Hello!
   </h2>
 </Layout>
 
 <style></style>
-
 <script>
   const sections = document.querySelectorAll("section");
   const sectionText = document.querySelector("#section-text");
-  const scrollMarginOffset = -400;
 
-  const updateSectionText = (scrollPosition: number) => {
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - scrollMarginOffset;
-      const sectionBottom =
-        sectionTop + section.offsetHeight + scrollMarginOffset;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && sectionText) {
+          sectionText.classList.toggle("text-transparent");
+          setTimeout(() => {
+            sectionText.textContent = entry.target.id;
+            sectionText.classList.toggle("text-transparent");
+          }, 600);
+        }
+      });
+    },
+    {
+      rootMargin: "-400px 0px 0px 0px",
+    }
+  );
 
-      if (
-        scrollPosition >= sectionTop &&
-        scrollPosition < sectionBottom &&
-        sectionText
-      ) {
-        sectionText.textContent = section.id;
-      }
-    });
-  };
-  window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY + window.innerHeight;
-    updateSectionText(scrollPosition);
+  sections.forEach((section) => {
+    observer.observe(section);
   });
 </script>
