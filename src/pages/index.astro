@@ -25,27 +25,29 @@ import { fade } from "astro:transitions";
 
 <style></style>
 <script>
-  const sections = document.querySelectorAll("section");
-  const sectionText = document.querySelector("#section-text");
+  addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section");
+    const sectionText = document.querySelector("#section-text");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && sectionText) {
-          sectionText.classList.toggle("text-transparent");
-          setTimeout(() => {
-            sectionText.textContent = entry.target.id;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && sectionText) {
             sectionText.classList.toggle("text-transparent");
-          }, 600);
-        }
-      });
-    },
-    {
-      rootMargin: "-400px 0px 0px 0px",
-    }
-  );
+            setTimeout(() => {
+              sectionText.textContent = entry.target.id;
+              sectionText.classList.toggle("text-transparent");
+            }, 600);
+          }
+        });
+      },
+      {
+        rootMargin: "-400px 0px 0px 0px",
+      }
+    );
 
-  sections.forEach((section) => {
-    observer.observe(section);
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
   });
 </script>
