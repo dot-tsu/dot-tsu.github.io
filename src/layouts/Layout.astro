@@ -1,5 +1,6 @@
 ---
 import "@fontsource/miriam-libre";
+import { ViewTransitions } from "astro:transitions";
 import Footer from "@/components/Footer.astro";
 import Navbar from "@/components/Navbar.astro";
 ---
@@ -32,49 +33,47 @@ import Navbar from "@/components/Navbar.astro";
     />
 
     <title>Luca Di Marco - Developer Portfolio</title>
+    <ViewTransitions />
   </head>
   <body class="text-primary bg-background cursor-none scroll-smooth">
-    <Navbar />
-    <main class="mt-[100px] lg:mt-0 lg:ml-[250px] p-5 relative flex flex-col">
-      <slot />
-    </main>
-    <Footer />
-    <div id="cursor-border" class="w-12 h-12 hidden lg:block"></div>
-    <div id="cursor-dot" class="w-2 h-2 hidden lg:block"></div>
+    <Navbar transition:persist/>
+    <slot />
+    <Footer transition:persist/>
+    <div id="cursor-border" class="w-12 h-12 hidden lg:block" transition:persist></div>
+    <div id="cursor-dot" class="w-2 h-2 hidden lg:block" transition:persist></div>
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      #cursor-dot,
+      #cursor-border {
+        @apply bg-background mix-blend-difference fixed rounded-full pointer-events-none z-50;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+
+    <script>
+        const cursorBorder = document.getElementById("cursor-border");
+        const cursorDot = document.getElementById("cursor-dot");
+
+        document.addEventListener("mousemove", (event) => {
+          if (cursorBorder && cursorDot) {
+            cursorDot.style.left = `${event.clientX}px`;
+            cursorDot.style.top = `${event.clientY}px`;
+
+            cursorBorder.animate(
+              {
+                left: `${event.clientX}px`,
+                top: `${event.clientY}px`,
+              },
+              {
+                duration: 1000,
+                fill: "both",
+              }
+            );
+          }
+        });
+    </script>
   </body>
 </html>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  #cursor-dot,
-  #cursor-border {
-    @apply bg-background mix-blend-difference fixed rounded-full pointer-events-none z-50;
-    transform: translate(-50%, -50%);
-  }
-</style>
-
-<script>
-  const cursorBorder = document.getElementById("cursor-border");
-  const cursorDot = document.getElementById("cursor-dot");
-
-  document.addEventListener("mousemove", (event) => {
-    if (cursorBorder && cursorDot) {
-      cursorDot.style.left = `${event.clientX}px`;
-      cursorDot.style.top = `${event.clientY}px`;
-
-      cursorBorder.animate(
-        {
-          left: `${event.clientX}px`,
-          top: `${event.clientY}px`,
-        },
-        {
-          duration: 1000,
-          fill: "both",
-        }
-      );
-    }
-  });
-</script>
