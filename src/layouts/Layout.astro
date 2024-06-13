@@ -36,11 +36,16 @@ import Navbar from "@/components/Navbar.astro";
     <ViewTransitions />
   </head>
   <body class="text-primary bg-background cursor-none scroll-smooth">
-    <Navbar transition:persist/>
+    <Navbar />
     <slot />
     <Footer />
-    <div id="cursor-border" class="w-12 h-12 hidden lg:block" transition:persist></div>
-    <div id="cursor-dot" class="w-2 h-2 hidden lg:block" transition:persist></div>
+    <div
+      id="cursor-border"
+      class="w-12 h-12 hidden lg:block"
+      transition:persist>
+    </div>
+    <div id="cursor-dot" class="w-2 h-2 hidden lg:block" transition:persist>
+    </div>
     <style is:global>
       html {
         scroll-behavior: smooth;
@@ -54,26 +59,26 @@ import Navbar from "@/components/Navbar.astro";
     </style>
 
     <script>
-        const cursorBorder = document.getElementById("cursor-border");
-        const cursorDot = document.getElementById("cursor-dot");
+      const cursorBorder = document.getElementById("cursor-border");
+      const cursorDot = document.getElementById("cursor-dot");
 
-        document.addEventListener("mousemove", (event) => {
-          if (cursorBorder && cursorDot) {
-            cursorDot.style.left = `${event.clientX}px`;
-            cursorDot.style.top = `${event.clientY}px`;
+      document.addEventListener("mousemove", (event) => {
+        if (cursorBorder && cursorDot) {
+          cursorDot.style.left = `${event.clientX}px`;
+          cursorDot.style.top = `${event.clientY}px`;
 
-            cursorBorder.animate(
-              {
-                left: `${event.clientX}px`,
-                top: `${event.clientY}px`,
-              },
-              {
-                duration: 1000,
-                fill: "both",
-              }
-            );
-          }
-        });
+          cursorBorder.animate(
+            {
+              left: `${event.clientX}px`,
+              top: `${event.clientY}px`,
+            },
+            {
+              duration: 1000,
+              fill: "both",
+            }
+          );
+        }
+      });
     </script>
   </body>
 </html>
