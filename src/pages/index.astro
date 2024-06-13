@@ -25,7 +25,6 @@ import { fade } from "astro:transitions";
 
 <style></style>
 <script>
-  addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section");
     const sectionText = document.querySelector("#section-text");
 
@@ -49,5 +48,4 @@ import { fade } from "astro:transitions";
     sections.forEach((section) => {
       observer.observe(section);
     });
-  });
 </script>
